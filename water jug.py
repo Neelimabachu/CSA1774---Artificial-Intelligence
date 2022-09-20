@@ -82,7 +82,6 @@ def apply_rule(ch, x, y):
     else:
       print("INVALID CHOICE")
 
-
 x = y = 0
 while(True):
   if (x==g) and (y==h):
