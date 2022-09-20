@@ -22,7 +22,6 @@ while x < 4:
         y+=1
     x+=1
     y=0
-
 print("Before cleaning the room I detect all of these random dirts")
 display(room)
 x =0
