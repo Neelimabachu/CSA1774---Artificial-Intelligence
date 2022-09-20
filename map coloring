@@ -92,7 +92,7 @@ while (True):
         clearMemory()
         continue
 
-    print("============================================")
+    print("===========================================")
     c3 = input("Enter color for South Australia: ")
     # validate color entered by user. here we dont need to validate color wrt to color of adjecent regions.
     if (validateInput(c3) and validateColor(SA, c3)):
