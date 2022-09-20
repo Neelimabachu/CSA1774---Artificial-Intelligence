@@ -43,6 +43,6 @@ def solve(next_action,path):
         _path.append(next_action)
         for i in next_possible_actions(next_action):
             solve(i,_path)
-            
+          
 solve([3,3,1],[])
 print(*solutions,sep="\n")
