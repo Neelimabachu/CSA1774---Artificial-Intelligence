@@ -3,7 +3,6 @@ N = int(input())
 
 board = [[0]*N for _ in range(N)]
 def attack(i, j):
-
     for k in range(0,N):
         if board[i][k]==1 or board[k][j]==1:
             return True
