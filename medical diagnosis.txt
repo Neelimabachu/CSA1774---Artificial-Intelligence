@@ -1,0 +1,65 @@
+go:-
+hypothesis(Disease),
+write('I believe that the patient have'),
+write(Disease),
+nl,
+write('TAKE CARE '),
+undo.
+/*Hypothesis that should be tested*/
+hypothesis(jaundice)     :- jaundice, !.
+hypothesis(flu)      :- flu, !.
+hypothesis(unknown). /* no diagnosis*/
+/*Hypothesis Identification Rules*/
+jaundice :-
+verify(yellowisheyesandskin),
+verify(darkcoloururine),
+verify(palebowlmovements),
+write('Advices and Sugestions:'),
+nl,
+write('1: Drink hot water'),
+nl,
+write('2: Put eye drops'),
+nl,
+write('3: Drink a lot of water'),
+nl,
+write('4: exercise regularly'),
+nl.
+flu :-
+verify(fatigue),
+verify(vomiting),
+verify(fever),
+write('Advices and Sugestions:'),
+nl,
+write('1: Drink Juice'),
+nl,
+write('2: Drink Salt water'),
+nl,
+write('3: Put hot water cloth on head'),
+nl,
+write('4: Apply pain killer'),
+nl.
+/* how to ask questions */
+ask(Question) :-
+write('Does the patient have following symptom:'),
+write(Question),
+write('? '),
+read(Response),
+nl,
+( (Response == yes ; Response == y)
+->
+assert(yes(Question)) ;
+assert(no(Question)), fail).
+:- dynamic(yes/1,no/1).
+/*How to verify something */
+verify(S) :-
+ (yes(S)
+  ->
+   true ;
+ (no(S)
+  ->
+   fail ;
+ ask(S))).
+/* undo all yes/no assertions*/
+undo :- retract(yes(_)),fail.
+undo :- retract(no(_)),fail.
+undo.
