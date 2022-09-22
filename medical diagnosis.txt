@@ -5,7 +5,7 @@ write(Disease),
 nl,
 write('TAKE CARE '),
 undo.
-/*Hypothesis that should be tested*/
+/*Hypothesis  that should be tested*/
 hypothesis(jaundice)     :- jaundice, !.
 hypothesis(flu)      :- flu, !.
 hypothesis(unknown). /* no diagnosis*/
